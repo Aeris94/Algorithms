@@ -25,7 +25,7 @@ void merge(int *array, int begin, int middle, int end)
     for (j = 0; j < n2; j++)
         Right[j] = array[middle + 1+ j];
   
-	i =0;
+    i =0;
     j =0;
     k = begin;  
    
@@ -72,28 +72,26 @@ void mergeSort(int *array, int begin, int end)
 int main()
 {
     int n;
-    cout << "Podaj liczbê elementów do posortowania: ";
+    cout << "Podaj liczbÃª elementÃ³w do posortowania: ";
     cin >> n;
     int *array = new int[n];
     for(int i=0; i<n; i++)
     	*(array +i) = rand()%100 +1;
     cout << "Tablica przed sortowaniem: " << endl;
+    show_array(array, n);		
 	
-	
-	clock_t s, f;
-	double czas=0;
-	s = clock();
-
-	mergeSort(array, 0, n-1);	
-	
-
+    clock_t s, f;
+    double czas=0;
+    s = clock();
     
-
+    mergeSort(array, 0, n-1);
 	
-	f = clock();
-	czas = (double)(f - s) / (double)(CLOCKS_PER_SEC);
-	cout << "Funkcja wykonywa³a siê: " << czas << endl << endl;	
+    f = clock();
+    czas = (double)(f - s) / (double)(CLOCKS_PER_SEC);
+    cout << "Tablica po sortowaniu: " << endl;		
+    show_array(array, n);
+    cout << "Sortowanie strwaÅ‚o: " << czas << " sekund." << endl;	
     
-	delete []array;
+    delete []array;
     return 0;
 }
